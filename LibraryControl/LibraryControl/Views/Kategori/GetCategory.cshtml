@@ -1,0 +1,23 @@
+﻿@model LibraryControl.Models.Entity.TBLKATEGORI
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    @using (Html.BeginForm("UpdateCategory", "Kategori", FormMethod.Post))
+    {
+    <div style="margin-top:25px" class="form-group">
+        @*@Html.LabelFor(k => k.Id)*@
+        Kategori ID
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+        <br />
+        @*@Html.LabelFor(k => k.Ad)*@
+        Kategori Adı
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+
+    <div>
+        <button style="margin-top:10px" class="btn btn-warning">Güncelle</button>
+    </div>
+    </div>
+    }
+
