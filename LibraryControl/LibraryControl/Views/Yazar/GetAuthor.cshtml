@@ -1,0 +1,28 @@
+﻿@model LibraryControl.Models.Entity.TBLYAZAR
+@{
+    ViewBag.Title = "GetAuthor";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("UpdateAuthor", "Yazar", FormMethod.Post))
+{
+    <div style="margin-top:25px" class="form-group">
+        @*@Html.LabelFor(k => k.Id)*@
+        Yazar ID
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+
+        <br />
+        @*@Html.LabelFor(k => k.Ad)*@
+        Yazar Adı
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+        <br />
+        Yazar Soyadı
+        @Html.TextBoxFor(k => k.Soyad, new { @class = "form-control" })<br />
+        Yazar Detay
+        @Html.TextBoxFor(k => k.DETAY, new { @class = "form-control" })
+        <div>
+            <button style="margin-top:10px" class="btn btn-warning">Güncelle</button>
+        </div>
+    </div>
+}

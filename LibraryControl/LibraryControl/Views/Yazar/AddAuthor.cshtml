@@ -1,0 +1,20 @@
+﻿@model LibraryControl.Models.Entity.TBLYAZAR
+@{
+    ViewBag.Title = "AddAuthor";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" action="/Yazar/AddAuthor" method="post">
+
+    <div>
+        <label>Yazar Adı</label>
+        <input type="text" class="form-control" name="AD" />
+        <label>Yazar Soyadı</label>
+        <input type="text" class="form-control" name="SOYAD" />
+        <label>Yazar Detay</label>
+        <input type="text" class="form-control" name="DETAY" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Ekle</button>
+    </div>
+</form>

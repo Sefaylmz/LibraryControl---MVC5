@@ -1,0 +1,37 @@
+﻿@using LibraryControl.Models.Entity
+@model List<TBLYAZAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> AD</th>
+            <th> SOYAD</th>
+            <th> DETAY</th>
+            <th> SİL</th>
+            <th> GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categories in Model)
+        {
+        <tr>
+            <td>@categories.Id</td>
+            <td>@categories.Ad</td>
+            <td>@categories.Soyad</td>
+            <td>@categories.DETAY</td>
+            <td>@Html.ActionLink("Sil","DeleteCategory", new { id = categories.Id}, new { @class="btn btn-danger", onclick="return confirm('Silmek istiyor musunuz?')" })</td>
+            
+            <td><a href="/Yazar/GetAuthor/@categories.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+<a href="/Yazar/AddAuthor" class="btn btn-primary"> Yeni Yazar Ekle</a>
+
