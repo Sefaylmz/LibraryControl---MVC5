@@ -1,0 +1,34 @@
+﻿@using LibraryControl.Models.Entity
+@model List<TBLPERSONEL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> PERSONEL ID </th>
+            <th> PERSONEL ADI VE SOYADI</th>
+            
+            <th> SİL</th>
+            <th> GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categories in Model)
+        {
+            <tr>
+                <td>@categories.Id</td>
+                <td>@categories.AdSoyad</td>
+                
+                <td>@Html.ActionLink("Sil", "DeletePersonal", new { id = categories.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
+
+                <td><a href="/Personal/GetPersonal/@categories.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<a href="/Personal/AddPersonal" class="btn btn-primary"> Yeni Personel Ekle</a>

@@ -1,26 +1,22 @@
-﻿@model LibraryControl.Models.Entity.TBLYAZAR
+﻿@model LibraryControl.Models.Entity.TBLPERSONEL
 @{
-    ViewBag.Title = "GetAuthor";
+    ViewBag.Title = "GetPersonal";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-
 
 @using (Html.BeginForm("UpdatePersonal", "Personal", FormMethod.Post))
 {
     <div style="margin-top:25px" class="form-group">
         @*@Html.LabelFor(k => k.Id)*@
-        Yazar ID
+        Personal ID
         @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
 
         <br />
         @*@Html.LabelFor(k => k.Ad)*@
-        Yazar Adı
-        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
-        <br />
-        Yazar Soyadı
-        @Html.TextBoxFor(k => k.Soyad, new { @class = "form-control" })<br />
-        Yazar Detay
-        @Html.TextBoxFor(k => k.DETAY, new { @class = "form-control" })
+        Personel Adı ve Soyadı
+        @Html.TextBoxFor(k => k.AdSoyad, new { @class = "form-control" })
+       
+       
         <div>
             <button style="margin-top:10px" class="btn btn-warning">Güncelle</button>
         </div>

@@ -1,0 +1,18 @@
+﻿@model LibraryControl.Models.Entity.TBLPERSONEL
+@{
+    ViewBag.Title = "AddPersonal";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    <form class="form-group" action="/Personal/AddPersonal" method="post">
+
+        <div>
+            <label>Personel Adı ve Soyadı</label>
+            <input type="text" class="form-control" name="AdSoyad" />
+            
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info" id="Btn1">Ekle</button>
+        </div>
+    </form>
+
