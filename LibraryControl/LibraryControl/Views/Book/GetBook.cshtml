@@ -1,0 +1,38 @@
+﻿@model LibraryControl.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "GetBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+{
+    <div style="margin-top:25px" class="form-group">
+        @*@Html.LabelFor(k => k.Id)*@
+        Kitap ID
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+
+        <br />
+        @*@Html.LabelFor(k => k.Ad)*@
+        Kitap Adı
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+        <br />
+        Kitap Kategori
+        @Html.DropDownListFor(b => b.TBLKATEGORI.Id, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
+        Kitap Yazarı
+        @Html.DropDownListFor(b => b.TBLYAZAR.Id, (List<SelectListItem>)ViewBag.val2, new { @class = "form-control" })
+        Kitap Basım Tarihi
+        @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+        Kitap Kitap YayınEvi
+        @Html.TextBoxFor(k => k.YAYINEVI, new { @class = "form-control" })
+        Kitap Sayfa Sayısı
+        @Html.TextBoxFor(k => k.SAYFA, new { @class = "form-control" })
+        Kitap Durum
+        @Html.TextBoxFor(k => k.DURUM, new { @class = "form-control" })
+        <div>
+            <button style="margin-top:10px" class="btn btn-warning">Güncelle</button>
+        </div>
+    </div>
+}
+
+
+

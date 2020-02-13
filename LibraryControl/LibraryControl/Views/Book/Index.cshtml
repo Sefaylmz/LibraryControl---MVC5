@@ -1,0 +1,61 @@
+﻿@using LibraryControl.Models.Entity
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <div style=" margin-bottom: 10px; margin-top:10px">
+        <b> Aranacak Kitap Adını Girin:</b>
+        @Html.TextBox("p")
+    <button class="btn btn-group-sm btn-info" type="submit">Ara</button>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap Id </th>
+            <th>Kitap Ad</th>
+            <th>Kitap Kategori</th>
+            <th>Yazar</th>
+            <th>Basım Yılı</th>
+            <th>Yayın Evi</th>
+            <th>Sayfa</th>
+            <th>Stok Durumu</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categories in Model)
+        {
+            <tr>
+                <td>@categories.Id</td>
+                <td>@categories.Ad</td>
+                <td>@categories.TBLKATEGORI.Ad</td>
+                <td>@categories.TBLYAZAR.Ad  @categories.TBLYAZAR.Soyad </td>
+                <td>@categories.BASIMYIL</td>
+                <td>@categories.YAYINEVI</td>
+                <td>@categories.SAYFA</td>
+
+                @if (categories.DURUM == true)
+                {
+                    <td>Stokta Var</td>
+                }
+
+                else
+                {
+                    <td>Stokta Yok</td>
+                }
+
+                <td><a href="/Book/DeleteBook/@categories.Id" class="btn btn-danger"> Sil </a></td>
+                <td><a href="/Book/GetBook/@categories.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a href="/Book/AddBook" class="btn btn-primary"> Yeni Kitap Ekle</a>
+

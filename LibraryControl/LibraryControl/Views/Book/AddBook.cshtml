@@ -1,0 +1,33 @@
+﻿@model LibraryControl.Models.Entity.TBLKITAP
+    @{
+        ViewBag.Title = "AddBook";
+        Layout = "~/Views/Shared/Layout.cshtml";
+    }
+
+    <form class="form-group" action="/Book/UpdateBook" method="post">
+
+        <div>
+            <label>Kitap Adı</label>
+            @Html.TextBoxFor(b => b.Ad, new { @class = "form-control" })
+
+            <label>Kitap Kategori</label>
+            @Html.DropDownListFor(b => b.TBLKATEGORI.Id, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
+
+
+            <label>Kitap Yazar</label>
+            @Html.DropDownListFor(b=> b.TBLYAZAR.Id,(List<SelectListItem>)ViewBag.val2, new { @class="form-control"})
+            <label>Kitap Basım Tarihi</label>
+            @Html.TextBoxFor(b => b.BASIMYIL, new { @class = "form-control" })
+
+            <label>Kitap YayınEvi</label>
+            @Html.TextBoxFor(b => b.YAYINEVI, new { @class = "form-control" })
+
+            <label>Kitap Sayfa Sayısı</label>
+            @Html.TextBoxFor(b => b.SAYFA, new { @class = "form-control" })
+            <label>Kitap Durumu</label>
+            @Html.TextBoxFor(b => b.DURUM, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-primary" id="Btn1">Kitap Bilgilerini Güncelle</button>
+        </div>
+    </form>
